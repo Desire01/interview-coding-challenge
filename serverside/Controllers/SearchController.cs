@@ -25,13 +25,15 @@ namespace serverside.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
-        //Sends a get request to TMDB via the API and returns a JSON list of searched movies via the query hardcoded in the request string 
-        [HttpGet]
-        public async Task<ActionResult> Get()
+        //Sends a get request to TMDB via the API and returns a JSON list of searched movies via the searchTerm passed from the frontend
+        [HttpGet("{text}")]
+        public async Task<ActionResult<string>> GetAsync(string text)
         {
+
             var client = _httpClientFactory.CreateClient();
-            var result = await client.GetStringAsync("https://api.themoviedb.org/3/search/movie?api_key=1b38cdbb95814a2070c1afc36ae8258c&language=en-US&query=sniper");
+            var result = await client.GetStringAsync("https://api.themoviedb.org/3/search/movie?api_key=1b38cdbb95814a2070c1afc36ae8258c&language=en-US&query= '" + text + "'");
             return Ok(result);
+            
         }
 
     }
