@@ -36,7 +36,7 @@ class Home extends Component {
       endpoint = `https://localhost:44325/api/popular`;
     } else {
       //endpoint = `https://localhost:44325/api/search?${searchTerm}`;
-      endpoint = `https://localhost:44325/api/values/${searchTerm}`;
+      endpoint = `https://localhost:44325/api/search/${searchTerm}`;
     }
     this.fetchItems(endpoint);
   }
