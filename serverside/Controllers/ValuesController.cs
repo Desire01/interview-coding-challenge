@@ -10,10 +10,10 @@ namespace serverside.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [EnableCors()]
+  
     public class ValuesController : ControllerBase
     {
-        private IHttpClientFactory _httpClientFactory;
+  
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
@@ -21,19 +21,12 @@ namespace serverside.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        public ValuesController(IHttpClientFactory httpClientFactory)
-        {
-            _httpClientFactory = httpClientFactory;
-        }
         // GET api/values/5
-        [HttpGet("{text}")]
-        public async Task<ActionResult<string>> GetAsync(string text)
+        [HttpGet("{id}")]
+        public ActionResult<string> Get(int id)
         {
 
-            var client = _httpClientFactory.CreateClient();
-            var result = await client.GetStringAsync("https://api.themoviedb.org/3/search/movie?api_key=1b38cdbb95814a2070c1afc36ae8258c&language=en-US&query= '"+text+"'");
-            return Ok(result);
-            // return "value";
+            return "value";
         }
 
         // POST api/values
