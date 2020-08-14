@@ -10,8 +10,7 @@ Backend (Server-side)
 Frontend (Client-side)
 
 1) Managed to load movies through the serverside endpoint (https://localhost:44325/api/popular)
-2) For the search and details endpoints i could not figure out how to implement them on the serverside due to starting the challenge late and also lack of proper farmilarity with the languages used.
-   Hence only managed to display results of the hardcoded search term from the server side while the details endpoint was done directly from the client-side without passing throughthe serverside API
+2) Added the Search Endpoint to allow the client side to search movies via the search term passed to the Serverside endpoint (https://localhost:44325/api/search)
 3) Added React-Router
 4) Used CSS for Styling  
 
